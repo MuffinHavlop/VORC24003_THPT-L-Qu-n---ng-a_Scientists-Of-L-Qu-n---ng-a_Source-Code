@@ -40,13 +40,13 @@ void loop()
     //Chuỗi lệnh điều khiển bánh trái
     if (ps2x.Analog(PSS_LY) > 0)
     {
-        pwm.setPWM(13, 0, ps2x.Analog(PSS_LY)*16); //ps2x.Analog(PSS_LY)*16 có nghĩa là sẽ lấy giá trị của trục LY từ 0->255 và nhân với 16. Ví dụ: 255*16 = 4080, cho giá trị động cơ gần tối đa
-        pwm.setPWM(12, 0, 0);                      //Thiết kế này có điểm tốt hơn cũ là driver sẽ chủ động được việc điều khiển tốc độ động cơ thay vì chỉ có một tốc độ tối đa như cũ
+        pwm.setPWM(12, 0, ps2x.Analog(PSS_LY)*16); //ps2x.Analog(PSS_LY)*16 có nghĩa là sẽ lấy giá trị của trục LY từ 0->255 và nhân với 16. Ví dụ: 255*16 = 4080, cho giá trị động cơ gần tối đa
+        pwm.setPWM(13, 0, 0);                      //Thiết kế này có điểm tốt hơn cũ là driver sẽ chủ động được việc điều khiển tốc độ động cơ thay vì chỉ có một tốc độ tối đa như cũ
     }
     else if (ps2x.Analog(PSS_LY) < 0)
     {
-        pwm.setPWM(13, 0, 0);
-        pwm.setPWM(12, 0, ps2x.Analog(PSS_LY)*16);
+        pwm.setPWM(12, 0, 0);
+        pwm.setPWM(13, 0, ps2x.Analog(PSS_LY)*16);
     }
     else
     {
