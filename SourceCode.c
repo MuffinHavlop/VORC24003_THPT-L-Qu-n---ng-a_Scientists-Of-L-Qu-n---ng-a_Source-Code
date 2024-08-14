@@ -76,45 +76,44 @@ void loop()
     {
         bool INTAKE = true;     //Ấn vào nút PAD_UP sẽ kích hoạt cơ chế INTAKE (Lấy bóng)
         bool OUTTAKE = false; 
-        bool OFF_IO = false; 
-        if (INTAKE == true)
-        {
-            pwm.setPWM(8, 0, 4096);
-            pwm.setPWM(9, 0, 0);
-        }
+        bool OFF_IO = false;  
     }
-
+    if (INTAKE == true)
+            {
+                pwm.setPWM(8, 0, 4096);
+                pwm.setPWM(9, 0, 0);
+            }
     //Chuỗi lệnh để bật cơ chế "OUTTAKE"
     if (ps2x.Button(PSB_PAD_DOWN))
     {
         bool INTAKE = false;        
         bool OUTTAKE = true;      //Ấn vào nút PAD_DOWN sẽ kích hoạt cơ chế OUTTAKE (Thả bóng)
-        bool OFF_IO = false; 
-        if (OUTTAKE == true)
-        {
-            pwm.setPWM(8, 0, 0);
-            pwm.setPWM(9, 0, 4096);
-        }
+        bool OFF_IO = false;    
     }
-
+    if (OUTTAKE == true)
+            {
+                pwm.setPWM(8, 0, 0);
+                pwm.setPWM(9, 0, 4096);
+            }
     //Chuỗi lệnh để tắt động cơ điều khiển 2 cơ chế "OFF_IO" tương đương "OFF_INTAKE_OUTTAKE"
     if (ps2x.Button(PSB_PAD_LEFT))
     {
         bool INTAKE = false; 
         bool OUTTAKE = false; 
         bool OFF_IO = true;     //Ấn vào nút PAD_LEFT sẽ tắt động cơ của cơ chế để tiết kiệm pin 
-        if (OFF_IO == true)
-        {
-            pwm.setPWM(8, 0, 0);
-            pwm.setPWM(9, 0, 0);
-        }
     }
-
+    if (OFF_IO == true)
+            {
+                pwm.setPWM(8, 0, 0);
+                pwm.setPWM(9, 0, 0);
+            }
     //Chuỗi lệnh để bật/tắt cơ chế "PUSH"
     if (ps2x.Button(PSB_TRIANGLE))
     {
         bool ON_OFF_P = !ON_OFF_P;      //Ấn vào nút TRIANGLE sẽ tắt/bật cơ chế PUSH
-        if (OFF_P == true)
+        
+    }
+    if (OFF_P == true)
         {
             pwm.setPWM(14, 0, 0);
             pwm.setPWM(15, 0, 4096);
@@ -124,5 +123,4 @@ void loop()
             pwm.setPWM(14, 0, 0);
             pwm.setPWM(15, 0, 0);
         }
-    }
 }
