@@ -46,7 +46,7 @@ void loop()
     else if (ps2x.Analog(PSS_LY) < 0)
     {
         pwm.setPWM(12, 0, 0);
-        pwm.setPWM(13, 0, ps2x.Analog(PSS_LY)*16);
+        pwm.setPWM(13, 0, -ps2x.Analog(PSS_LY)*16);
     }
     else
     {
@@ -62,7 +62,7 @@ void loop()
     }
     else if (ps2x.Analog(PSS_RY) < 0)
     {
-        pwm.setPWM(10, 0, ps2x.Analog(PSS.RY)*16);
+        pwm.setPWM(10, 0, -ps2x.Analog(PSS.RY)*16);
         pwm.setPWM(11, 0, 0);
     }
     else
