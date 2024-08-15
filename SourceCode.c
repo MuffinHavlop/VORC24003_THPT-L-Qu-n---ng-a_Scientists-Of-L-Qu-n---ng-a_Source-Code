@@ -113,12 +113,12 @@ void loop()
         bool ON_OFF_P = !ON_OFF_P;      //Ấn vào nút TRIANGLE sẽ tắt/bật cơ chế PUSH
         
     }
-    if (OFF_P == true)
+    if (ON_OFF_P == true)
         {
             pwm.setPWM(14, 0, 0);
             pwm.setPWM(15, 0, 4096);
         }
-        else 
+    else 
         {
             pwm.setPWM(14, 0, 0);
             pwm.setPWM(15, 0, 0);
